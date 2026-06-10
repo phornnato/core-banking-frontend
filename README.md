@@ -33,7 +33,7 @@ dotnet --version
 ## Clone Project
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/coreBankSystemFrontend.git
+git clone https://github.com/phornnato/core-banking-frontend.git
 cd coreBankSystemFrontend
 ```
 
