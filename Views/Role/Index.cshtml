@@ -1,0 +1,94 @@
+﻿@model List<RoleViewModel>
+
+<div class="card shadow">
+
+    <div class="card-header">
+
+        <div class="d-flex justify-content-between">
+
+            <h4>Role Management</h4>
+
+            <a asp-action="Create"
+               class="btn btn-primary">
+
+                Add New Role
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="card-body">
+
+        <table id="roleTable"
+               class="table table-bordered">
+
+            <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th width="180">Action</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.Id</td>
+
+                        <td>@item.Title</td>
+
+                        <td>@item.Description</td>
+
+                        <td>
+
+                            <a asp-action="Edit"
+                               asp-route-id="@item.Id"
+                               class="btn btn-warning">
+
+                                Edit
+
+                            </a>
+
+                            <a asp-action="Delete"
+                               asp-route-id="@item.Id"
+                               class="btn btn-danger"
+                               onclick="return confirm('Delete this role?')">
+
+                                Delete
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+@section Scripts {
+
+    <script>
+
+        $(document).ready(function(){
+
+            $('#roleTable').DataTable();
+
+        });
+
+    </script>
+
+}
