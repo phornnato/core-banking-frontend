@@ -10,6 +10,9 @@
 
         <form asp-action="Edit">
 
+            @Html.AntiForgeryToken()
+
+
             <input asp-for="Id" hidden />
 
             <div class="mb-3">
@@ -33,6 +36,8 @@
             <button class="btn btn-primary">
                 Update
             </button>
+            <a asp-action="Back" class="btn btn-danger">Back</a>
+
 
         </form>
 

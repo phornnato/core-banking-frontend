@@ -1,0 +1,36 @@
+﻿@model Admin 
+
+<form asp-action="Edit" method="post">
+
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" asp-for="Id" />
+    
+
+    <div class="mb-3">
+        <label>Role</label>
+
+        <select asp-for="RoleId"
+                class="form-control"
+                asp-items="@(new SelectList(ViewBag.Roles, "Id", "Title"))">
+            <option value="">Select Role</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Username</label>
+        <input asp-for="Username" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Admin Code</label>
+        <input asp-for="AdminCode" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Email</label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

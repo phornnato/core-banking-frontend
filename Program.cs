@@ -1,8 +1,11 @@
+using coreBankSystemFrontend.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<RoleApiService>();
+builder.Services.AddHttpClient<AdminApiService>();
 
 var app = builder.Build();
 

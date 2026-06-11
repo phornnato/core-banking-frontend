@@ -22,6 +22,7 @@ public class RoleController : Controller
     }
 
     [HttpPost]
+    [AutoValidateAntiforgeryToken]
     public async Task<IActionResult> Create(RoleViewModel model)
     {
         await _service.Create(model);
@@ -35,6 +36,7 @@ public class RoleController : Controller
     }
 
     [HttpPost]
+    [AutoValidateAntiforgeryToken]
     public async Task<IActionResult> Edit(long id, RoleViewModel model)
     {
         await _service.Update(id, model);
@@ -44,6 +46,11 @@ public class RoleController : Controller
     public async Task<IActionResult> Delete(long id)
     {
         await _service.Delete(id);
+        return RedirectToAction(nameof(Index));
+    }
+
+    public  IActionResult Back()
+    {
         return RedirectToAction(nameof(Index));
     }
 }

@@ -1,0 +1,57 @@
+﻿@model Admin
+
+<div class="card shadow">
+
+    <div class="card-header">
+        Create Role
+    </div>
+
+    <div class="card-body">
+
+        <form asp-action="Create">
+
+            @Html.AntiForgeryToken() @* avoid injection *@
+
+            <div class="mb-3">
+                <label>Role</label>
+
+                <select asp-for="RoleId" class="form-control">
+                    <option value="">Select Role</option>
+
+                    @foreach (var role in Model.Roles)
+                    {
+                        <option value="@role.Id">
+                            @role.Title
+                        </option>
+                    }
+                </select>
+            </div>
+
+            <div class="mb-3">
+
+                <label>* username</label>
+
+                <input asp-for="Username"
+                       class="form-control" />
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>email</label>
+
+                <input asp-for="Email"
+                       class="form-control" />
+
+            </div>
+
+            <button class="btn btn-success">
+                Save
+            </button>
+            <a asp-action="Back" class="btn btn-danger">Back</a>
+
+        </form>
+
+    </div>
+
+</div>

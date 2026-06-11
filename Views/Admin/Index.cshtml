@@ -1,4 +1,4 @@
-﻿@model List<RoleViewModel>
+﻿@model List<Admin>
 @{
     int index = 1;
 }
@@ -13,7 +13,7 @@
             <a asp-action="Create"
                class="btn btn-primary">
 
-                Add New Role
+                Add New Admin
 
             </a>
 
@@ -23,18 +23,17 @@
 
     <div class="card-body">
 
-        <table id="roleTable"
+        <table id="adminTable"
                class="table table-bordered">
 
-            <thead>
 
+            <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Title</th>
-                    <th>Description</th>
+                    <th>Admin Code</th>
+                    <th>Admin Email</th>
                     <th width="180">Action</th>
                 </tr>
-
             </thead>
 
             <tbody>
@@ -45,9 +44,9 @@
 
                         <td>@index</td>
 
-                        <td>@item.Title</td>
+                        <td>@item.AdminCode</td>
 
-                        <td>@item.Description</td>
+                        <td>@item.Email</td>
 
                         <td>
 
@@ -62,7 +61,7 @@
                             <a asp-action="Delete"
                                asp-route-id="@item.Id"
                                class="btn btn-danger"
-                               onclick="return confirm('Delete this role?')">
+                               onclick="return confirm('Delete this Admin?')">
 
                                 Delete
 
@@ -89,7 +88,7 @@
 
         $(document).ready(function(){
 
-            $('#roleTable').DataTable();
+            $('#adminTable').DataTable();
 
         });
 

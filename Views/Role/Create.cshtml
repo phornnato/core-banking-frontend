@@ -10,6 +10,9 @@
 
         <form asp-action="Create">
 
+            @Html.AntiForgeryToken()
+
+
             <div class="mb-3">
 
                 <label>Title</label>
@@ -31,6 +34,7 @@
             <button class="btn btn-success">
                 Save
             </button>
+            <a asp-action="Back" class="btn btn-danger">Back</a>
 
         </form>
 
